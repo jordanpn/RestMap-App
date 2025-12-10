@@ -1,2 +1,2 @@
 # RestMap-App
-RestMap pubilc facing repo
+RestMap public facing repo
