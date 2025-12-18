@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jordanpn.github.io/RestMap-App/sitemap.xml
