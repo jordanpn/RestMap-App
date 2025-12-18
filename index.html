@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestMap - Find Clean Restrooms, Instantly</title>
+    <meta name="description" content="RestMap uses AI to rate restroom quality before you arrive. Perfect for road trips, rideshare drivers, and families. Download free on the App Store.">
+    <meta name="keywords" content="restroom finder, bathroom locator, road trip app, clean restrooms, family travel, rideshare driver app">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="RestMap - Find Clean Restrooms, Instantly">
+    <meta property="og:description" content="AI-powered restroom finder. Know the quality before you go.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://restmap.app">
+
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand: #4A90D9;
+            --brand-dark: #3A7BC8;
+            --positive: #34C759;
+            --bg: #FAFBFC;
+            --text: #1a1a2e;
+            --text-secondary: #64748b;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4ecf7 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234A90D9' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 27%;
+            margin: 0 auto 2rem;
+            box-shadow: 0 20px 40px rgba(74, 144, 217, 0.3);
+            animation: float 3s ease-in-out infinite;
+            overflow: hidden;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .tagline {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            color: var(--brand);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text) 0%, #4a5568 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .app-store-badge {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .app-store-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .app-store-badge img {
+            height: 54px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            color: #FFD700;
+            letter-spacing: 2px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background: var(--card-bg);
+        }
+
+        .features-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border-radius: 16px;
+            background: var(--bg);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Use Cases */
+        .use-cases {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 3rem;
+        }
+
+        .use-cases-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .use-case {
+            background: var(--card-bg);
+            padding: 1.75rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .use-case-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .use-case h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .use-case p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 4rem 2rem;
+            background: var(--card-bg);
+            text-align: center;
+        }
+
+        .quote {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--text);
+            position: relative;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--brand);
+            opacity: 0.3;
+            position: absolute;
+            top: -1.5rem;
+            left: -1rem;
+            font-family: Georgia, serif;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta .app-store-badge img {
+            height: 60px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            background: var(--text);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Privacy badge */
+        .privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(52, 199, 89, 0.1);
+            color: var(--positive);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 4rem 1.5rem;
+            }
+
+            .app-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+            }
+
+            .features, .use-cases, .social-proof, .final-cta {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="app-icon"><img src="icon-192.png" alt="RestMap App Icon"></div>
+            <p class="tagline">The One-Tap Restroom App</p>
+            <h1>Find Clean Restrooms, Instantly</h1>
+            <p class="subtitle">AI-powered quality ratings help you find the best restrooms before you arrive. Perfect for road trips, families, and drivers.</p>
+
+            <div class="cta-container">
+                <a href="https://apps.apple.com/us/app/restmap/id6756338728" class="app-store-badge" aria-label="Download on the App Store">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+                </a>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span>5.0 Rating</span>
+                </div>
+            </div>
+
+            <div class="privacy-badge">
+                <span>🔒</span>
+                <span>100% Private - On-Device AI</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(74, 144, 217, 0.1);">🧠</div>
+                <h3>RestRoom IQ</h3>
+                <p>Our AI analyzes 250+ chains and community reviews to predict quality with letter grades (A-F) before you even arrive.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(52, 199, 89, 0.1);">🛣️</div>
+                <h3>Road Trip Mode</h3>
+                <p>Track your journey on Lock Screen with Live Activity. Get smart stop recommendations along your route.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(255, 149, 0, 0.1);">🔍</div>
+                <h3>Smart Filters</h3>
+                <p>Find exactly what you need: pet areas, family restrooms, showers, RV parking, and baby changing stations.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(175, 82, 222, 0.1);">⭐</div>
+                <h3>Trusted Chains</h3>
+                <p>Prioritize your favorites like Buc-ee's, Love's, Pilot, and Wawa. We know where the good ones are.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(255, 59, 48, 0.1);">📱</div>
+                <h3>Widgets & Siri</h3>
+                <p>"Hey Siri, plan road trip stops" - hands-free support plus home screen widgets for instant access.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(90, 200, 250, 0.1);">👥</div>
+                <h3>Community Powered</h3>
+                <p>Real ratings from real travelers. Help others by sharing your experiences with a single tap.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases">
+        <h2 class="section-title">Built For Your Journey</h2>
+        <div class="use-cases-grid">
+            <div class="use-case">
+                <div class="use-case-icon">🚗</div>
+                <h4>Road Trippers</h4>
+                <p>Plan stops along your route. Never wonder where the next clean restroom is.</p>
+            </div>
+
+            <div class="use-case">
+                <div class="use-case-icon">👨‍👩‍👧‍👦</div>
+                <h4>Families</h4>
+                <p>Find family restrooms, changing tables, and kid-friendly stops instantly.</p>
+            </div>
+
+            <div class="use-case">
+                <div class="use-case-icon">🚙</div>
+                <h4>Rideshare Drivers</h4>
+                <p>Quick, reliable stops between rides. Save time and stay comfortable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <p class="quote">Never wonder 'where's the nearest clean restroom?' again.</p>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Start Your Journey</h2>
+        <p>Join thousands of travelers who never stress about restroom stops again.</p>
+        <a href="https://apps.apple.com/us/app/restmap/id6756338728" class="app-store-badge" aria-label="Download on the App Store">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 RestMap. <a href="privacy.html">Privacy Policy</a> &bull; <a href="mailto:support@restmap.app">Contact</a></p>
+    </footer>
+</body>
+</html>
