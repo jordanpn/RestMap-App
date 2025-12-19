@@ -25,6 +25,8 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="RestMap">
     <link rel="canonical" href="https://jordanpn.github.io/RestMap-App/">
+    <link rel="alternate" hreflang="en" href="https://jordanpn.github.io/RestMap-App/">
+    <link rel="alternate" hreflang="x-default" href="https://jordanpn.github.io/RestMap-App/">
 
     <!-- App Store Smart Banner (shows download banner on iOS Safari) -->
     <meta name="apple-itunes-app" content="app-id=6756338728">
@@ -52,9 +54,72 @@
     }
     </script>
 
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "RestMap",
+        "url": "https://jordanpn.github.io/RestMap-App/",
+        "logo": "https://jordanpn.github.io/RestMap-App/icon-192.png",
+        "description": "RestMap helps travelers find the best restroom stops with AI-powered quality predictions.",
+        "email": "flush.restmap@gmail.com",
+        "sameAs": [
+            "https://apps.apple.com/us/app/restmap/id6756338728",
+            "https://github.com/jordanpn/RestMap-App"
+        ]
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How does RestMap know restroom quality?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RestMap uses AI-powered RestRoom IQ that analyzes data from 250+ chains and community ratings to predict quality with letter grades (A-F). The more the community contributes, the more accurate the predictions become."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is RestMap free to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! RestMap is completely free to download and use. All core features including RestRoom IQ ratings, road trip planning, and community ratings are available at no cost."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does RestMap work offline?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RestMap requires an internet connection to search for locations and fetch ratings. However, your favorites and recent searches are cached for quick access, and the AI predictions work on-device for privacy."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What devices support RestMap?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RestMap is available for iPhone and requires iOS 17 or later. It includes support for Live Activities on the Lock Screen, widgets, and Siri shortcuts for hands-free operation."
+                }
+            }
+        ]
+    }
+    </script>
+
     <!-- Favicon & App Icons -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="icon-192.png" as="image">
+    <link rel="preload" href="screenshots/iphone/09-map-view.png" as="image">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,6 +151,45 @@
             overflow-x: hidden;
         }
 
+        /* Navigation */
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(250, 251, 252, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--brand);
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            background: var(--brand);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--brand-dark);
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -94,7 +198,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 2rem;
+            padding: 5rem 2rem 2rem;
             background: linear-gradient(135deg, #f5f7fa 0%, #e4ecf7 100%);
             position: relative;
         }
@@ -510,6 +614,38 @@
             height: 60px;
         }
 
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 2rem;
+            background: var(--card-bg);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
         /* Footer */
         footer {
             padding: 2rem;
@@ -578,10 +714,17 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="/" class="nav-logo">RestMap</a>
+        <a href="https://apps.apple.com/us/app/restmap/id6756338728" class="nav-cta">Get the App</a>
+    </nav>
+
+    <main>
     <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <div class="app-icon"><img src="icon-192.png" alt="RestMap App Icon"></div>
+            <div class="app-icon"><img src="icon-192.png" alt="RestMap - Road Trip Companion App Icon" width="120" height="120"></div>
             <p class="tagline">Your Intelligent Road Trip Companion</p>
             <h1>Plan Smarter Stops, Travel Better</h1>
             <p class="subtitle">AI-powered planning for road trips, family travel, and daily commutes. Know the quality of every stop before you arrive.</p>
@@ -620,11 +763,11 @@
                 <div class="iphone-frame">
                     <div class="iphone-screen">
                         <div class="screenshot-carousel" id="carousel">
-                            <img src="screenshots/iphone/09-map-view.png" alt="RestMap Map View" class="active">
-                            <img src="screenshots/iphone/10-place-detail.png" alt="RestMap Place Details">
-                            <img src="screenshots/iphone/11-road-trip.png" alt="RestMap Road Trip">
-                            <img src="screenshots/iphone/07-iq-how.png" alt="RestRoom IQ">
-                            <img src="screenshots/iphone/01-onboarding-find.png" alt="Find Clean Restrooms">
+                            <img src="screenshots/iphone/09-map-view.png" alt="RestMap interactive map showing restroom locations with quality grades A through F" class="active">
+                            <img src="screenshots/iphone/10-place-detail.png" alt="RestMap place details screen with RestRoom IQ rating, amenities, and directions">
+                            <img src="screenshots/iphone/11-road-trip.png" alt="RestMap road trip planning mode with stops along your route">
+                            <img src="screenshots/iphone/07-iq-how.png" alt="How RestRoom IQ works - AI-powered quality predictions explained">
+                            <img src="screenshots/iphone/01-onboarding-find.png" alt="Find clean restrooms near you with RestMap">
                         </div>
                     </div>
                 </div>
@@ -717,6 +860,37 @@
         <p class="quote">Plan every stop with confidence. Travel better, stress less.</p>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">How does RestMap know restroom quality?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">RestMap uses AI-powered RestRoom IQ that analyzes data from 250+ chains and community ratings to predict quality with letter grades (A-F). The more the community contributes, the more accurate the predictions become.</p>
+                </div>
+            </article>
+            <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Is RestMap free to use?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Yes! RestMap is completely free to download and use. All core features including RestRoom IQ ratings, road trip planning, and community ratings are available at no cost.</p>
+                </div>
+            </article>
+            <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Does RestMap work offline?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">RestMap requires an internet connection to search for locations and fetch ratings. However, your favorites and recent searches are cached for quick access, and the AI predictions work on-device for privacy.</p>
+                </div>
+            </article>
+            <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">What devices support RestMap?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">RestMap is available for iPhone and requires iOS 17 or later. It includes support for Live Activities on the Lock Screen, widgets, and Siri shortcuts for hands-free operation.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
     <!-- Final CTA -->
     <section class="final-cta">
         <h2>Start Your Journey</h2>
@@ -725,6 +899,8 @@
             <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
         </a>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer>
