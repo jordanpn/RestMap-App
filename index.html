@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RestMap - Find Clean Restrooms on Your Road Trip</title>
-    <meta name="description" content="Find quality restrooms before you arrive. AI-powered ratings predict cleanliness with letter grades A-F. Plan road trip stops, see community ratings, and travel with confidence.">
-    <meta name="keywords" content="road trip planner, road trip app, restroom finder, bathroom locator, clean restrooms, family travel, rest stop, trip planning app, travel companion">
+    <meta name="description" content="Find quality restrooms before you arrive. AI combines 4 data sources to predict cleanliness with letter grades A-F. Accessibility info, road trip planning, and community ratings.">
+    <meta name="keywords" content="road trip planner, road trip app, restroom finder, bathroom locator, clean restrooms, family travel, accessible restroom, wheelchair restroom, trip planning app, travel companion">
 
     <!-- Open Graph / Social -->
     <meta property="og:title" content="RestMap - Find Clean Restrooms on Your Road Trip">
-    <meta property="og:description" content="Know restroom quality before you arrive. AI predicts cleanliness with letter grades. Plan stops, see community ratings, travel with confidence.">
+    <meta property="og:description" content="AI combines 4 data sources to predict restroom quality with letter grades A-F. See accessibility info, plan road trip stops, travel with confidence.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jordanpn.github.io/RestMap-App/">
     <meta property="og:image" content="https://jordanpn.github.io/RestMap-App/graphics/RestMap_Info.png">
@@ -18,7 +18,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="RestMap - Find Clean Restrooms on Your Road Trip">
-    <meta name="twitter:description" content="Know restroom quality before you arrive. AI predicts cleanliness with letter grades. Plan stops, see community ratings, travel with confidence.">
+    <meta name="twitter:description" content="AI combines 4 data sources to predict restroom quality with letter grades A-F. See accessibility info, plan road trip stops, travel with confidence.">
     <meta name="twitter:image" content="https://jordanpn.github.io/RestMap-App/graphics/RestMap_Info.png">
 
     <!-- Additional SEO -->
@@ -39,7 +39,7 @@
         "name": "RestMap",
         "operatingSystem": "iOS",
         "applicationCategory": "NavigationApplication",
-        "description": "Find clean restrooms with AI-powered quality predictions. RestRoom IQ rates locations A-F before you arrive. Plan road trip stops, see community ratings, and travel with confidence.",
+        "description": "Find clean restrooms with AI-powered quality predictions. RestRoom IQ combines 4 data sources to rate locations A-F. Includes accessibility info, road trip planning, and community ratings.",
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -83,7 +83,7 @@
                 "name": "How does RestMap know restroom quality?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "RestMap uses AI-powered RestRoom IQ that analyzes data from 250+ chains and community ratings to predict quality with letter grades (A-F). The more the community contributes, the more accurate the predictions become."
+                    "text": "RestRoom IQ combines 4 data sources: 600+ brand profiles, community ratings, OpenStreetMap (50,000+ US toilets), and Refuge Restrooms (accessibility data). The AI fuses these sources to predict quality with letter grades (A-F)."
                 }
             },
             {
@@ -96,10 +96,10 @@
             },
             {
                 "@type": "Question",
-                "name": "Does RestMap work offline?",
+                "name": "Does RestMap show accessibility information?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "RestMap requires an internet connection to search for locations and fetch ratings. However, your favorites and recent searches are cached for quick access, and the AI predictions work on-device for privacy."
+                    "text": "Yes! RestMap shows wheelchair access, family restrooms, changing tables, and gender-neutral options. This data comes from OpenStreetMap and Refuge Restrooms, a database of safe, accessible restrooms."
                 }
             },
             {
@@ -107,7 +107,7 @@
                 "name": "What devices support RestMap?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "RestMap is available for iPhone and requires iOS 17 or later. It includes support for Live Activities on the Lock Screen, widgets, and Siri shortcuts for hands-free operation."
+                    "text": "RestMap is available for iPhone and iPad. It includes support for Live Activities on the Lock Screen, widgets, and Siri shortcuts for hands-free operation."
                 }
             }
         ]
@@ -120,7 +120,7 @@
 
     <!-- Preload Critical Resources -->
     <link rel="preload" href="icon-192.png" as="image">
-    <link rel="preload" href="screenshots/iphone/09-map-view.png" as="image">
+    <link rel="preload" href="screenshots/dark/iPhone 16 Pro Max-04_MapView.png" as="image">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -374,6 +374,7 @@
             width: 280px;
             height: 570px;
             flex-shrink: 0;
+            margin-bottom: 40px;
         }
 
         .iphone-frame {
@@ -420,10 +421,13 @@
 
         /* Carousel dots */
         .carousel-dots {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
             display: flex;
             justify-content: center;
             gap: 8px;
-            margin-top: 1.5rem;
         }
 
         .carousel-dot {
@@ -701,6 +705,7 @@
             .iphone-mockup {
                 width: 240px;
                 height: 490px;
+                margin-bottom: 40px;
             }
 
             .iphone-frame {
@@ -728,7 +733,7 @@
             <div class="app-icon"><img src="icon-192.png" alt="RestMap - Road Trip Companion App Icon" width="120" height="120"></div>
             <p class="tagline">Your Road Trip Companion</p>
             <h1>Know Before You Go</h1>
-            <p class="subtitle">Find clean restrooms with AI-powered quality predictions. See letter grades (A-F) before you arrive. Plan road trip stops with confidence.</p>
+            <p class="subtitle">AI combines 4 data sources to predict restroom quality with letter grades (A-F). See accessibility info, plan road trip stops, and travel with confidence.</p>
 
             <div class="cta-container">
                 <a href="https://apps.apple.com/us/app/restmap/id6756338728" class="app-store-badge" aria-label="Download on the App Store">
@@ -754,21 +759,21 @@
                 <h2>See It In Action</h2>
                 <p>Plan your road trip with confidence. RestMap shows you restroom quality before you arrive.</p>
                 <ul class="showcase-features">
-                    <li><span>🧠</span> AI-powered RestRoom IQ grades (A-F)</li>
+                    <li><span>🧠</span> AI combines 4 sources for quality grades</li>
+                    <li><span>♿</span> Accessibility info at a glance</li>
                     <li><span>🗺️</span> Plan stops along your route</li>
                     <li><span>👥</span> Real ratings from real travelers</li>
-                    <li><span>📱</span> Live Activity on your Lock Screen</li>
                 </ul>
             </div>
             <div class="iphone-mockup">
                 <div class="iphone-frame">
                     <div class="iphone-screen">
                         <div class="screenshot-carousel" id="carousel">
-                            <img src="screenshots/iphone/09-map-view.png" alt="RestMap interactive map showing restroom locations with quality grades A through F" class="active">
-                            <img src="screenshots/iphone/10-place-detail.png" alt="RestMap place details screen with RestRoom IQ rating, amenities, and directions">
-                            <img src="screenshots/iphone/11-road-trip.png" alt="RestMap road trip planning mode with stops along your route">
-                            <img src="screenshots/iphone/07-iq-how.png" alt="How RestRoom IQ works - AI-powered quality predictions explained">
-                            <img src="screenshots/iphone/01-onboarding-find.png" alt="Find clean restrooms near you with RestMap">
+                            <img src="screenshots/dark/iPhone 16 Pro Max-04_MapView.png" alt="RestMap interactive map showing restroom locations with quality grades" class="active">
+                            <img src="screenshots/dark/iPhone 16 Pro Max-05_FindBest.png" alt="RestMap Find Best - AI-powered recommendations">
+                            <img src="screenshots/dark/iPhone 16 Pro Max-06_PlaceDetail.png" alt="RestMap place details with RestRoom IQ rating and accessibility info">
+                            <img src="screenshots/dark/iPhone 16 Pro Max-07_RoadTrip.png" alt="RestMap road trip planning with stops along your route">
+                            <img src="screenshots/dark/iPhone 16 Pro Max-08_TripPlan.png" alt="RestMap trip plan with quality grades for each stop">
                         </div>
                     </div>
                 </div>
@@ -789,7 +794,7 @@
             <div class="feature-card">
                 <div class="feature-icon" style="background: rgba(74, 144, 217, 0.1);">🧠</div>
                 <h3>RestRoom IQ</h3>
-                <p>Our AI analyzes 250+ chains and community ratings to predict quality with letter grades (A-F). Know what you're walking into before you arrive.</p>
+                <p>Our AI combines 4 data sources: 600+ brand profiles, community ratings, OpenStreetMap, and Refuge Restrooms. Letter grades (A-F) you can trust.</p>
             </div>
 
             <div class="feature-card">
@@ -811,9 +816,9 @@
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon" style="background: rgba(255, 149, 0, 0.1);">🔍</div>
-                <h3>Smart Filters</h3>
-                <p>Find exactly what you need: family restrooms, changing tables, pet areas, showers, RV parking, and more.</p>
+                <div class="feature-icon" style="background: rgba(255, 149, 0, 0.1);">♿</div>
+                <h3>Accessibility Info</h3>
+                <p>See wheelchair access, family restrooms, changing tables, and gender-neutral options. Data from OpenStreetMap and Refuge Restrooms.</p>
             </div>
 
             <div class="feature-card">
@@ -868,7 +873,7 @@
             <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                 <h3 itemprop="name">How does RestMap know restroom quality?</h3>
                 <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <p itemprop="text">RestMap uses AI-powered RestRoom IQ that analyzes data from 250+ chains and community ratings to predict quality with letter grades (A-F). The more the community contributes, the more accurate the predictions become.</p>
+                    <p itemprop="text">RestRoom IQ combines 4 data sources: 600+ brand profiles, community ratings, OpenStreetMap (50,000+ US toilets), and Refuge Restrooms (accessibility data). The AI fuses these sources to predict quality with letter grades (A-F).</p>
                 </div>
             </article>
             <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -878,15 +883,15 @@
                 </div>
             </article>
             <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">Does RestMap work offline?</h3>
+                <h3 itemprop="name">Does RestMap show accessibility information?</h3>
                 <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <p itemprop="text">RestMap requires an internet connection to search for locations and fetch ratings. However, your favorites and recent searches are cached for quick access, and the AI predictions work on-device for privacy.</p>
+                    <p itemprop="text">Yes! RestMap shows wheelchair access, family restrooms, changing tables, and gender-neutral options. This data comes from OpenStreetMap and Refuge Restrooms, a database of safe, accessible restrooms.</p>
                 </div>
             </article>
             <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                 <h3 itemprop="name">What devices support RestMap?</h3>
                 <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <p itemprop="text">RestMap is available for iPhone and requires iOS 17 or later. It includes support for Live Activities on the Lock Screen, widgets, and Siri shortcuts for hands-free operation.</p>
+                    <p itemprop="text">RestMap is available for iPhone and iPad. It includes support for Live Activities on the Lock Screen, widgets, and Siri shortcuts for hands-free operation.</p>
                 </div>
             </article>
         </div>
@@ -933,7 +938,7 @@
             }
 
             function startAutoplay() {
-                interval = setInterval(nextSlide, 3500);
+                interval = setInterval(nextSlide, 2800);
             }
 
             function stopAutoplay() {

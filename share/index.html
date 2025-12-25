@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>RestMap - Find Clean Restrooms Anywhere</title>
+    <meta name="description" content="Join thousands finding cleaner, safer restrooms wherever you go.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jordanpn.github.io/RestMap-App/share/">
+    <meta property="og:title" content="RestMap - Find Clean Restrooms Anywhere">
+    <meta property="og:description" content="Join thousands finding cleaner, safer restrooms wherever you go.">
+    <meta property="og:image" content="https://jordanpn.github.io/RestMap-App/images/share-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://jordanpn.github.io/RestMap-App/share/">
+    <meta property="twitter:title" content="RestMap - Find Clean Restrooms Anywhere">
+    <meta property="twitter:description" content="Join thousands finding cleaner, safer restrooms wherever you go.">
+    <meta property="twitter:image" content="https://jordanpn.github.io/RestMap-App/images/share-card.png">
+
+    <!-- Auto redirect after 1.5 seconds -->
+    <meta http-equiv="refresh" content="1.5;url=https://apps.apple.com/app/restmap/id6756338728">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #358fb8 0%, #4db1a0 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 40px 20px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            margin: 0 auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .manual-link {
+            display: none;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        .manual-link a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .tagline {
+            margin-top: 40px;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🚽</div>
+        <h1>Opening App Store...</h1>
+        <p>Taking you to RestMap</p>
+        <div class="spinner"></div>
+        <div id="manual-link" class="manual-link">
+            <a href="https://apps.apple.com/app/restmap/id6756338728">Click here if you're not redirected</a>
+        </div>
+        <p class="tagline">Find Clean Restrooms Anywhere</p>
+    </div>
+
+    <script>
+        // Redirect after 1.5 seconds
+        setTimeout(function() {
+            window.location.href = 'https://apps.apple.com/app/restmap/id6756338728';
+        }, 1500);
+
+        // Show manual link if redirect doesn't work
+        setTimeout(function() {
+            document.getElementById('manual-link').style.display = 'block';
+        }, 3000);
+    </script>
+</body>
+</html>
