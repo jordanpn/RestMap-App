@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200, height=630">
+    <title>RestMap Share Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1200px;
+            height: 630px;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2a7a9c 0%, #3d9e8c 50%, #4db1a0 100%);
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Decorative elements */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .shape-1 {
+            width: 500px;
+            height: 500px;
+            top: -200px;
+            right: -100px;
+        }
+
+        .shape-2 {
+            width: 350px;
+            height: 350px;
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 15%;
+            transform: translateY(-50%);
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 60px 80px;
+            z-index: 1;
+        }
+
+        .left-section {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .app-icon {
+            width: 180px;
+            height: 180px;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .headline {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            padding: 4px 12px;
+            border-radius: 8px;
+            display: inline;
+        }
+
+        .subheadline {
+            font-size: 24px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            line-height: 1.4;
+        }
+
+        .grade-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .grade-badge {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 26px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .grade-a { background: linear-gradient(135deg, #33C773, #28a35d); }
+        .grade-b { background: linear-gradient(135deg, #408FE0, #3478c5); }
+        .grade-c { background: linear-gradient(135deg, #F2A640, #d48f35); }
+        .grade-d { background: linear-gradient(135deg, #E8736B, #c95f58); }
+
+        .trust-row {
+            display: flex;
+            gap: 24px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 18px;
+            border-radius: 25px;
+        }
+
+        .checkmark {
+            color: #33C773;
+            font-size: 20px;
+        }
+
+        .app-name {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .stars {
+            font-size: 24px;
+            color: #FFD700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .rating-text {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative shapes -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <div class="container">
+        <div class="left-section">
+            <h1 class="headline">
+                Never Play<br>
+                <span class="highlight">Gas Station Roulette</span><br>
+                Again
+            </h1>
+            <p class="subheadline">AI predicts restroom quality (A-F) before you arrive</p>
+
+            <div class="grade-row">
+                <div class="grade-badge grade-a">A</div>
+                <div class="grade-badge grade-b">B</div>
+                <div class="grade-badge grade-c">C</div>
+                <div class="grade-badge grade-d">D</div>
+            </div>
+
+            <div class="trust-row">
+                <div class="trust-badge">
+                    <span class="checkmark">✓</span>
+                    <span>Free</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="checkmark">✓</span>
+                    <span>Private</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="checkmark">✓</span>
+                    <span>50K+ Locations</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <img src="app-icon.png" alt="RestMap" class="app-icon">
+            <div class="app-name">RestMap</div>
+            <div class="stars">★★★★★</div>
+            <div class="rating-text">Road Trip Companion</div>
+        </div>
+    </div>
+</body>
+</html>

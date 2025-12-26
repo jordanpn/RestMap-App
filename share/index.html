@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>RestMap - Find Clean Restrooms Anywhere</title>
-    <meta name="description" content="Join thousands finding cleaner, safer restrooms wherever you go.">
+    <title>RestMap - Never Play Gas Station Roulette Again</title>
+    <meta name="description" content="AI predicts restroom quality (A-F) before you arrive. Join 10,000+ road trippers finding cleaner stops.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jordanpn.github.io/RestMap-App/share/">
-    <meta property="og:title" content="RestMap - Find Clean Restrooms Anywhere">
-    <meta property="og:description" content="Join thousands finding cleaner, safer restrooms wherever you go.">
+    <meta property="og:title" content="RestMap - Never Play Gas Station Roulette Again">
+    <meta property="og:description" content="AI predicts restroom quality (A-F) before you arrive. Join 10,000+ road trippers finding cleaner stops.">
     <meta property="og:image" content="https://jordanpn.github.io/RestMap-App/images/share-card.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -20,12 +20,15 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://jordanpn.github.io/RestMap-App/share/">
-    <meta property="twitter:title" content="RestMap - Find Clean Restrooms Anywhere">
-    <meta property="twitter:description" content="Join thousands finding cleaner, safer restrooms wherever you go.">
+    <meta property="twitter:title" content="RestMap - Never Play Gas Station Roulette Again">
+    <meta property="twitter:description" content="AI predicts restroom quality (A-F) before you arrive. Join 10,000+ road trippers.">
     <meta property="twitter:image" content="https://jordanpn.github.io/RestMap-App/images/share-card.png">
 
-    <!-- Auto redirect after 1.5 seconds -->
-    <meta http-equiv="refresh" content="1.5;url=https://apps.apple.com/app/restmap/id6756338728">
+    <!-- Auto redirect after 2 seconds -->
+    <meta http-equiv="refresh" content="2;url=https://apps.apple.com/app/restmap/id6756338728">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/app-icon.png">
 
     <style>
         * {
@@ -35,52 +38,126 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #358fb8 0%, #4db1a0 100%);
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.15) 0%, transparent 50%),
+                        linear-gradient(135deg, #2a7a9c 0%, #3d9e8c 50%, #4db1a0 100%);
             color: white;
             text-align: center;
+            overflow: hidden;
         }
 
         .container {
-            max-width: 400px;
-            padding: 40px 20px;
+            max-width: 420px;
+            padding: 32px 24px;
+            animation: fadeInUp 0.6s ease-out;
         }
 
-        .logo {
-            width: 80px;
-            height: 80px;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .app-icon {
+            width: 100px;
+            height: 100px;
             margin: 0 auto 20px;
-            background: white;
-            border-radius: 20px;
+            border-radius: 22px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .headline {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subheadline {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .grade-badges {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            animation: fadeIn 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .grade-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 40px;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
-        h1 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 8px;
+        .grade-a { background: linear-gradient(135deg, #33C773, #28a35d); }
+        .grade-b { background: linear-gradient(135deg, #408FE0, #3478c5); }
+        .grade-c { background: linear-gradient(135deg, #F2A640, #d48f35); }
+        .grade-d { background: linear-gradient(135deg, #E8736B, #c95f58); }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            font-size: 13px;
+            opacity: 0.85;
+            animation: fadeIn 0.8s ease-out 0.5s both;
         }
 
-        p {
-            font-size: 16px;
-            opacity: 0.9;
-            margin-bottom: 30px;
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .loading-section {
+            animation: fadeIn 0.8s ease-out 0.7s both;
+        }
+
+        .spinner-container {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 16px;
         }
 
         .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
             border-top-color: white;
             border-radius: 50%;
-            margin: 0 auto;
             animation: spin 1s linear infinite;
         }
 
@@ -88,46 +165,132 @@
             to { transform: rotate(360deg); }
         }
 
+        .loading-text {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .loading-subtext {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
         .manual-link {
             display: none;
-            margin-top: 40px;
-            font-size: 14px;
+            margin-top: 24px;
+            animation: fadeIn 0.3s ease-out;
         }
 
         .manual-link a {
             color: white;
-            text-decoration: underline;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            display: inline-block;
+            transition: background 0.2s;
         }
 
-        .tagline {
-            margin-top: 40px;
+        .manual-link a:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .footer {
+            margin-top: 32px;
             font-size: 12px;
-            opacity: 0.7;
+            opacity: 0.6;
+            animation: fadeIn 0.8s ease-out 0.9s both;
+        }
+
+        .footer .stars {
+            color: #FFD700;
+            margin-bottom: 4px;
+        }
+
+        /* Decorative elements */
+        .bg-shape {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            pointer-events: none;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            left: -50px;
         }
     </style>
 </head>
 <body>
+    <!-- Decorative background shapes -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
     <div class="container">
-        <div class="logo">🚽</div>
-        <h1>Opening App Store...</h1>
-        <p>Taking you to RestMap</p>
-        <div class="spinner"></div>
-        <div id="manual-link" class="manual-link">
-            <a href="https://apps.apple.com/app/restmap/id6756338728">Click here if you're not redirected</a>
+        <!-- App Icon -->
+        <img src="../images/app-icon.png" alt="RestMap" class="app-icon">
+
+        <!-- Headlines -->
+        <h1 class="headline">Never Play Gas Station Roulette Again</h1>
+        <p class="subheadline">AI predicts restroom quality before you arrive</p>
+
+        <!-- Grade Badges Preview -->
+        <div class="grade-badges">
+            <div class="grade-badge grade-a">A</div>
+            <div class="grade-badge grade-b">B</div>
+            <div class="grade-badge grade-c">C</div>
+            <div class="grade-badge grade-d">D</div>
         </div>
-        <p class="tagline">Find Clean Restrooms Anywhere</p>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+            <span class="trust-badge">Free</span>
+            <span class="trust-badge">Private</span>
+            <span class="trust-badge">50K+ Locations</span>
+        </div>
+
+        <!-- Loading Section -->
+        <div class="loading-section">
+            <div class="spinner-container">
+                <div class="spinner"></div>
+            </div>
+            <p class="loading-text">Opening App Store...</p>
+            <p class="loading-subtext">Your road trip companion awaits</p>
+        </div>
+
+        <!-- Manual Link (shows after delay) -->
+        <div id="manual-link" class="manual-link">
+            <a href="https://apps.apple.com/app/restmap/id6756338728">Tap here to download</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="stars">★★★★★</div>
+            <p>Loved by road trippers everywhere</p>
+        </div>
     </div>
 
     <script>
-        // Redirect after 1.5 seconds
+        // Redirect after 2 seconds
         setTimeout(function() {
             window.location.href = 'https://apps.apple.com/app/restmap/id6756338728';
-        }, 1500);
+        }, 2000);
 
         // Show manual link if redirect doesn't work
         setTimeout(function() {
             document.getElementById('manual-link').style.display = 'block';
-        }, 3000);
+        }, 3500);
     </script>
 </body>
 </html>
